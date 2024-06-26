@@ -1,5 +1,5 @@
 image := 'un1def/emilua'
-version := '0.8.3'
+version := '0.8.4'
 
 _list:
   @just --list
