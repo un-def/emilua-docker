@@ -2,7 +2,7 @@ image := 'un1def/emilua'
 version := '0.9.0'
 
 _list:
-  @just --list
+  @just --list --unsorted
 
 build:
   #!/bin/sh
@@ -17,3 +17,7 @@ build:
     --build-arg='VERSION={{version}}' \
     --build-arg="BUILD_DATE=${build_date}" \
     --tag '{{image}}:{{version}}' --tag '{{image}}:latest'
+
+push:
+  docker push '{{image}}:{{version}}'
+  docker push '{{image}}:latest'
