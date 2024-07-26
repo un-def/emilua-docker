@@ -1,5 +1,5 @@
 image := 'un1def/emilua'
-version := '0.9.0'
+version := '0.9.1'
 
 _list:
   @just --list --unsorted
@@ -12,7 +12,7 @@ build:
   fi
   build_date=$(TZ=UTC date --iso-8601=seconds)
   docker build . \
-    --pull --no-cache --force-rm \
+    --pull --no-cache \
     --build-arg='IMAGE_NAME={{image}}' \
     --build-arg='VERSION={{version}}' \
     --build-arg="BUILD_DATE=${build_date}" \

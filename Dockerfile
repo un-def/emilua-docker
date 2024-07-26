@@ -5,10 +5,10 @@ ARG BUILD_DATE
 ARG BASE='ubuntu:24.04'
 
 
-FROM ${BASE} as base
+FROM ${BASE} AS base
 
 
-FROM base as builder
+FROM base AS builder
 
 ARG IMAGE_NAME
 ARG VERSION
