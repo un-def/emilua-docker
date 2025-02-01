@@ -10,10 +10,9 @@ build:
     echo '{{image}}:{{version}} already exists'
     exit 1
   fi
-  build_date=$(TZ=UTC date --iso-8601=seconds)
+  build_date=$(date --utc --iso-8601=seconds)
   docker build . \
     --pull --no-cache \
-    --build-arg='IMAGE_NAME={{image}}' \
     --build-arg='VERSION={{version}}' \
     --build-arg="BUILD_DATE=${build_date}" \
     --tag '{{image}}:{{version}}' --tag '{{image}}:latest'

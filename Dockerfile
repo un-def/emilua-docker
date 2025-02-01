@@ -1,4 +1,3 @@
-ARG IMAGE_NAME
 ARG VERSION
 ARG BUILD_DATE
 
@@ -10,14 +9,12 @@ FROM ${BASE} AS base
 
 FROM base AS builder
 
-ARG IMAGE_NAME
 ARG VERSION
 ARG BUILD_DATE
 
 WORKDIR /build/
 
 RUN \
-    : "${IMAGE_NAME:?}" && \
     : "${VERSION:?}" && \
     : "${BUILD_DATE:?}" && \
     export DEBIAN_FRONTEND=noninteractive && \
@@ -66,7 +63,6 @@ RUN \
 
 FROM base
 
-ARG IMAGE_NAME
 ARG VERSION
 ARG BUILD_DATE
 
@@ -84,8 +80,7 @@ RUN \
     && \
     ldconfig
 
-LABEL name="Emilua"
-LABEL image-name="${IMAGE_NAME}"
-LABEL maintainer="Dmitry Meyer <me@undef.im>"
-LABEL version="${VERSION}"
-LABEL build-date="${BUILD_DATE}"
+LABEL org.opencontainers.image.title="Emilua"
+LABEL org.opencontainers.image.version="${VERSION}"
+LABEL org.opencontainers.image.created="${BUILD_DATE}"
+LABEL org.opencontainers.image.authors="Dmitry Meyer <me@undef.im>"
