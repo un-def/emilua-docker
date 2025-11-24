@@ -1,7 +1,7 @@
 ARG VERSION
 ARG BUILD_DATE
 
-ARG BASE='ubuntu:24.04'
+ARG BASE='debian:13-slim'
 
 
 FROM ${BASE} AS base
@@ -32,7 +32,7 @@ RUN \
         gperf \
         asciidoctor \
         libc-dev \
-        libboost-all-dev \
+        libboost1.88-all-dev \
         libssl-dev \
         libcap-dev \
         libfmt-dev \
@@ -73,8 +73,8 @@ RUN \
     apt-get update && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
-        libboost-context1.83.0 \
-        libfmt9 \
+        libboost-context1.88.0 \
+        libfmt10 \
         libserd-0-0 \
         libsord-0-0 \
     && \
